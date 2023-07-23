@@ -6,8 +6,7 @@
 
 bool cmd_option_exists(char** begin, char** end, const std::string& option);
 
-std::string helper_msg = R"(
-Usage:
+std::string helper_msg = R"(Usage:
 cccvt [-h] <要转换的字 Text to convert> [Options]
 
 Options:
@@ -18,7 +17,7 @@ Options:
 
 int main(int argc, char** argv) {
     std::string json("s2t.json");
-    if (cmd_option_exists(argv, argv + argc, "-h")) {
+    if (argc == 1 || cmd_option_exists(argv, argv + argc, "-h")) {
         std::cout << helper_msg << std::endl;
         return 0;
     }
